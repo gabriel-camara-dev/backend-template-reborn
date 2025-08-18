@@ -21,7 +21,7 @@ export class ResetPasswordUseCase {
 
     const userExists = await this.usersRepository.findBy({ token })
 
-    if (!userExists || !userExists.tokenExpiresAt || userExists.tokenExpiresAt >= new Date()) {
+    if (!userExists || !userExists.tokenExpiresAt || userExists.tokenExpiresAt < new Date()) {
       throw new InvalidTokenError()
     }
 

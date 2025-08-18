@@ -9,6 +9,7 @@ import { forgotPassword } from './forgot-password.controller'
 import { getUserByPublicId, getUserProfile } from './get-user-profile.controller'
 import { updateUser, updateUserByPublicId } from './update-user.controller'
 import { UserRole } from '@prisma/client'
+import { listUsers } from './list-users.controller'
 
 export async function usersRoutes(app: FastifyInstance) {
   // Register routes:
@@ -29,4 +30,5 @@ export async function usersRoutes(app: FastifyInstance) {
   app.patch('/:publicId', { onRequest: [verifyJwt, verifyUserRole([UserRole.ADMIN])] }, updateUserByPublicId)
   app.delete('/:publicId', { onRequest: [verifyJwt, verifyUserRole([UserRole.ADMIN])] }, deleteUserByPublicId)
   app.get('/:publicId', { onRequest: [verifyJwt, verifyUserRole([UserRole.ADMIN])] }, getUserByPublicId)
+  app.get('/', { onRequest: [verifyJwt, verifyUserRole([UserRole.ADMIN])] }, listUsers)
 }
