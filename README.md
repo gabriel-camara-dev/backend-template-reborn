@@ -119,8 +119,8 @@ Neste repositório está o projeto para ...
 ## 💻 Como Executar o Servidor:
 
 1. Abra o terminal - `CMD`, `PowerShell`, `Bash` ou similares - em algum diretório de preferência em sua máquina.
-2. Clone este repositório com o comando: `git clone https://github.com/IN-Junior-UFF/astrobiologia-backend`.
-3. Navegue para dentro do projeto clonado com o comando: `cd astrobiologia-backend`.
+2. Clone este repositório com o comando: `git clone https://github.com/IN-Junior-UFF/backend-template-reborn`.
+3. Navegue para dentro do projeto clonado com o comando: `cd backend-template-reborn`.
 4. Instale as dependências do projeto ao executar no console o comando: `npm install`.
 5. Crie um arquivo `.env` na raiz do projeto copiando o conteúdo do `.env.example`. Preencha manualmente os valores que não estiverem definidos.
 
@@ -207,7 +207,7 @@ sudo apt-get update
 Finalmente, basta agora instalar o próprio Docker em sua máquina com o comando:
 
 ```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 Se desejar checar a instalação bem sucedida do Docker, execute o comando `sudo docker run hello-world` para obter um `Hello World` diretamente do Docker.
