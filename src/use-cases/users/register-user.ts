@@ -1,8 +1,8 @@
+import { env } from '@env/index'
+import { Prisma, User, UserRole } from '@prisma/client'
 import { UserRepository } from '@repositories/users-repository'
 import { UserAlreadyExistsError } from '@use-cases/errors/user-already-exists-error'
-import { Prisma, User, UserRole } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { env } from '@env/index'
 
 interface RegisterUserUseCaseRequest {
   name: string

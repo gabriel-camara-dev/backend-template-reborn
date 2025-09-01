@@ -1,15 +1,15 @@
-import fastify from 'fastify'
+import { messages } from '@constants/messages'
 import { env } from '@env/index'
+import fastifyCors from '@fastify/cors'
+import fastifyJwt from '@fastify/jwt'
 import { appRoutes } from '@http/routes'
 import { logger, runWithRequestId, runWithUserContext } from '@lib/logger'
 import { logError } from '@lib/logger/helpers'
-import { v7 as uuidv7 } from 'uuid'
-import z, { ZodError } from 'zod'
-import { messages } from '@constants/messages'
-import fastifyJwt from '@fastify/jwt'
-import fastifyCors from '@fastify/cors'
 import * as Sentry from '@sentry/node'
 import { nodeProfilingIntegration } from '@sentry/profiling-node'
+import fastify from 'fastify'
+import { v7 as uuidv7 } from 'uuid'
+import z, { ZodError } from 'zod'
 
 z.config(z.locales.pt())
 

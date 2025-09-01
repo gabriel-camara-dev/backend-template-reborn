@@ -1,6 +1,6 @@
-import { type FastifyReply, type FastifyRequest } from 'fastify'
-import { UserRole } from '@prisma/client'
 import { messages } from '@constants/messages'
+import { UserRole } from '@prisma/client'
+import { type FastifyReply, type FastifyRequest } from 'fastify'
 
 export function verifyUserRole(allowedRoles: UserRole[]) {
   return async (request: FastifyRequest, reply: FastifyReply) => {

@@ -1,6 +1,6 @@
-import { z } from 'zod'
-import { cpf } from 'cpf-cnpj-validator'
 import { messages } from '@constants/messages'
+import { cpf } from 'cpf-cnpj-validator'
+import { z } from 'zod'
 
 export const cpfSchema = z.preprocess(
   (val) => (typeof val === 'string' ? val.replace(/\D/g, '') : val),

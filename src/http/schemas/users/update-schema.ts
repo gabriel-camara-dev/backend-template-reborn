@@ -1,7 +1,7 @@
-import { z } from 'zod'
 import { cpfSchema } from '@schemas/utils/cpf'
 import { emailSchema } from '@schemas/utils/email'
 import { passwordSchema } from '@schemas/utils/password'
+import { z } from 'zod'
 import { usernameSchema } from '../utils/username'
 
 export const updateSchema = z.object({

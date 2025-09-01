@@ -1,10 +1,10 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
-import { logger } from '@lib/logger'
-import { UserAlreadyExistsError } from '@use-cases/errors/user-already-exists-error'
-import { registerSchema } from '@http/schemas/users/register-schema'
-import { makeRegisterUserUseCase } from '@use-cases/factories/make-register-user-use-case'
-import { UserRole } from '@prisma/client'
 import { UserPresenter } from '@http/presenters/user-presenter'
+import { registerSchema } from '@http/schemas/users/register-schema'
+import { logger } from '@lib/logger'
+import { UserRole } from '@prisma/client'
+import { UserAlreadyExistsError } from '@use-cases/errors/user-already-exists-error'
+import { makeRegisterUserUseCase } from '@use-cases/factories/make-register-user-use-case'
+import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {
   try {

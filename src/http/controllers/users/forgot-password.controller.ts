@@ -1,12 +1,12 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
-import { forgotPasswordSchema } from '@http/schemas/users/forgot-password-schema'
-import { makeForgotPasswordUseCase } from '@use-cases/factories/make-forgot-password-use-case'
-import { logger } from '@lib/logger'
-import { makeSendEmailUseCase } from '@use-cases/factories/make-send-email-use-case'
-import { forgotPasswordTextTemplate } from '@templates/forgot-password/forgot-password-text'
-import { forgotPasswordHtmlTemplate } from '@templates/forgot-password/forgot-password-html'
 import { messages } from '@constants/messages'
+import { forgotPasswordSchema } from '@http/schemas/users/forgot-password-schema'
+import { logger } from '@lib/logger'
+import { forgotPasswordHtmlTemplate } from '@templates/forgot-password/forgot-password-html'
+import { forgotPasswordTextTemplate } from '@templates/forgot-password/forgot-password-text'
 import { UserNotFoundForPasswordResetError } from '@use-cases/errors/user-not-found-for-password-reset-error'
+import { makeForgotPasswordUseCase } from '@use-cases/factories/make-forgot-password-use-case'
+import { makeSendEmailUseCase } from '@use-cases/factories/make-send-email-use-case'
+import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function forgotPassword(request: FastifyRequest, reply: FastifyReply) {
   try {

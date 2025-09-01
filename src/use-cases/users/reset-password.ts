@@ -1,8 +1,8 @@
-import type { UserRepository } from '@repositories/users-repository'
-import { hash } from 'bcryptjs'
 import { env } from '@env/index'
-import { InvalidTokenError } from '@use-cases/errors/invalid-token-error'
 import { User } from '@prisma/client'
+import type { UserRepository } from '@repositories/users-repository'
+import { InvalidTokenError } from '@use-cases/errors/invalid-token-error'
+import { hash } from 'bcryptjs'
 
 interface ResetPasswordUseCaseCaseRequest {
   token: string

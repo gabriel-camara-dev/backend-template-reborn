@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { messages } from '@constants/messages'
+import { z } from 'zod'
 
 export const passwordSchema = z
   .string()
