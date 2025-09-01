@@ -153,7 +153,7 @@ wsl --install
 Inicie a primeira instância de usuário Linux no WSL com o comando a seguir:
 
 ```bash
-wsl.exe -d Ubuntu
+wsl -d Ubuntu
 ```
 
 Aguarde o término do processo e siga as etapas que o terminal solicitar, como a criação de um novo usuário e senha.
