@@ -1,6 +1,13 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../src/@types/prisma/client.js'
+import { env } from '../src/env/index.js'
 
-const prisma = new PrismaClient()
+const connectionString = `${env.DATABASE_URL}`
+
+const adapter = new PrismaPg({ connectionString })
+export const prisma = new PrismaClient({
+  adapter,
+})
 
 export async function seed() {
   await prisma.user.upsert({

@@ -48,4 +48,10 @@ export default [
       ],
     },
   },
+  {
+    files: ['prisma/**/*.{js,ts}', 'src/env/index.ts'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
 ]
