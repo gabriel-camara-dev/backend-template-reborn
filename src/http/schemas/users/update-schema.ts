@@ -1,8 +1,8 @@
-import { cpfSchema } from '@schemas/utils/cpf'
-import { emailSchema } from '@schemas/utils/email'
-import { passwordSchema } from '@schemas/utils/password'
+import { cpfSchema } from '@schemas/utils/cpf.js'
+import { emailSchema } from '@schemas/utils/email.js'
+import { passwordSchema } from '@schemas/utils/password.js'
 import { z } from 'zod'
-import { usernameSchema } from '../utils/username'
+import { usernameSchema } from '../utils/username.js'
 
 export const updateSchema = z.object({
   name: z.string().trim().min(4).optional(),

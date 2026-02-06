@@ -1,4 +1,4 @@
-import { logger } from './index'
+import { logger } from './index.js'
 
 export function logError(error: unknown, context: Record<string, unknown> = {}, msg = 'Unexpected error') {
   if (error instanceof Error) {

@@ -1,10 +1,10 @@
-import { UserPresenter } from '@http/presenters/user-presenter'
-import { registerSchema } from '@http/schemas/users/register-schema'
-import { logger } from '@lib/logger'
-import { UserRole } from '@prisma/client'
-import { UserAlreadyExistsError } from '@use-cases/errors/user-already-exists-error'
-import { makeRegisterUserUseCase } from '@use-cases/factories/make-register-user-use-case'
+import { UserPresenter } from '@http/presenters/user-presenter.js'
+import { registerSchema } from '@http/schemas/users/register-schema.js'
+import { logger } from '@lib/logger/index.js'
+import { UserAlreadyExistsError } from '@use-cases/errors/user-already-exists-error.js'
+import { makeRegisterUserUseCase } from '@use-cases/factories/make-register-user-use-case.js'
 import type { FastifyReply, FastifyRequest } from 'fastify'
+import { UserRole } from '@/@types/prisma/client.js'
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {
   try {

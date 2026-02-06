@@ -1,6 +1,6 @@
-import { UserPresenter } from '@http/presenters/user-presenter'
-import { logger } from '@lib/logger'
-import { makeListUsersUseCase } from '@use-cases/factories/make-list-users-use-case'
+import { UserPresenter } from '@http/presenters/user-presenter.js'
+import { logger } from '@lib/logger/index.js'
+import { makeListUsersUseCase } from '@use-cases/factories/make-list-users-use-case.js'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function listUsers(_request: FastifyRequest, reply: FastifyReply) {

@@ -1,4 +1,4 @@
-import { messages } from '@constants/messages'
+import { messages } from '@constants/messages.js'
 import { z } from 'zod'
 
 export const passwordSchema = z

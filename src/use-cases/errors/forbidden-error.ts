@@ -1,4 +1,4 @@
-import { messages } from '@constants/messages'
+import { messages } from '@constants/messages.js'
 
 export class ForbiddenError extends Error {
   constructor() {

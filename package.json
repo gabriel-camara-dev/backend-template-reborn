@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "build": "tsup src --minify",
     "start:dev": "tsx watch --env-file=.env --no-deprecation src/server.ts",
@@ -17,6 +17,7 @@
   "dependencies": {
     "@fastify/cors": "11.1.0",
     "@fastify/jwt": "10.0.0",
+    "@prisma/adapter-pg": "7.3.0",
     "@prisma/client": "7.0.1",
     "@sentry/node": "10.27.0",
     "@sentry/profiling-node": "10.27.0",
@@ -24,6 +25,7 @@
     "cpf-cnpj-validator": "1.0.3",
     "fastify": "5.7.4",
     "nodemailer": "7.0.11",
+    "pg": "8.18.0",
     "pino": "10.1.0",
     "uuid": "11.1.0",
     "zod": "4.3.6"

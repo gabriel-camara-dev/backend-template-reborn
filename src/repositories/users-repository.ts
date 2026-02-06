@@ -1,4 +1,4 @@
-import { Prisma, User } from '@prisma/client'
+import { Prisma, User } from '@/@types/prisma/client.js'
 
 export interface TokenData {
   token: string | null

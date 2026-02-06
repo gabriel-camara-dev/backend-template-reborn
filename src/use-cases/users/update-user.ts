@@ -1,8 +1,8 @@
-import { env } from '@env/index'
-import { User } from '@prisma/client'
-import { UserRepository } from '@repositories/users-repository'
-import { ResourceNotFoundError } from '@use-cases/errors/resource-not-found-error'
+import { env } from '@env/index.js'
+import { UserRepository } from '@repositories/users-repository.js'
+import { ResourceNotFoundError } from '@use-cases/errors/resource-not-found-error.js'
 import { hash } from 'bcryptjs'
+import { User } from '@/@types/prisma/client.js'
 
 interface UpdateUserUseCaseRequest {
   publicId: string

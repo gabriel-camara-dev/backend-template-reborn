@@ -1,7 +1,7 @@
-import { env } from '@env/index'
-import { logger } from '@lib/logger'
+import { env } from '@env/index.js'
+import { logger } from '@lib/logger/index.js'
 import nodemailer, { SentMessageInfo } from 'nodemailer'
-import { Attachment } from 'nodemailer/lib/mailer'
+import { Attachment } from 'nodemailer/lib/mailer/index.js'
 
 const transporter = nodemailer.createTransport({
   host: env.SMTP_HOST,

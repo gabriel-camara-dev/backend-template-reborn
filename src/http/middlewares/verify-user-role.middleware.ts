@@ -1,4 +1,4 @@
-import { messages } from '@constants/messages'
+import { messages } from '@constants/messages.js'
 import { UserRole } from '@prisma/client'
 import { type FastifyReply, type FastifyRequest } from 'fastify'
 

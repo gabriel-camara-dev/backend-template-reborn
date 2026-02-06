@@ -1,4 +1,4 @@
-import { messages } from '@constants/messages'
+import { messages } from '@constants/messages.js'
 import { cpf } from 'cpf-cnpj-validator'
 import { z } from 'zod'
 

@@ -1,6 +1,6 @@
-import { logger } from '@lib/logger'
-import { logError } from '@lib/logger/helpers'
-import { prisma } from '@lib/prisma'
+import { logError } from '@lib/logger/helpers.js'
+import { logger } from '@lib/logger/index.js'
+import { prisma } from '@lib/prisma/index.js'
 import type { FastifyRequest, FastifyReply } from 'fastify'
 
 export async function healthCheck(_request: FastifyRequest, reply: FastifyReply) {
