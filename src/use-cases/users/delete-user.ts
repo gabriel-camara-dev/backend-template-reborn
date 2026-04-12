@@ -1,4 +1,4 @@
-import { UserRepository } from '@repositories/users-repository.js'
+import type { UserRepository } from '@repositories/users-repository.js'
 import { ResourceNotFoundError } from '@use-cases/errors/resource-not-found-error.js'
 
 interface DeleteUserUseCaseRequest {

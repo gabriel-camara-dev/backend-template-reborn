@@ -1,8 +1,8 @@
 import { emailSchema } from '@http/schemas/utils/email.js'
-import { UserRepository } from '@repositories/users-repository.js'
+import type { UserRepository } from '@repositories/users-repository.js'
 import { InvalidCredentialsError } from '@use-cases/errors/invalid-credentials-error.js'
 import { compare } from 'bcryptjs'
-import { User } from '@/@types/prisma/client.js'
+import type { User } from '@/@types/prisma/client.js'
 
 interface AuthenticateUserUseCaseRequest {
   login: string

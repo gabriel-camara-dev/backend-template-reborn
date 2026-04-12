@@ -1,5 +1,5 @@
-import { UserRepository } from '@repositories/users-repository.js'
-import { User } from '@/@types/prisma/client.js'
+import type { UserRepository } from '@repositories/users-repository.js'
+import type { User } from '@/@types/prisma/client.js'
 
 type ListUsersUseCaseResponse = {
   users: User[]

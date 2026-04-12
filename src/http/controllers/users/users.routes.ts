@@ -1,6 +1,6 @@
 import { verifyJwt } from '@middlewares/verify-jwt.middleware.js'
 import { verifyUserRole } from '@middlewares/verify-user-role.middleware.js'
-import { FastifyInstance } from 'fastify'
+import type { FastifyInstance } from 'fastify'
 import { authenticateUser } from './authenticate-user.controller.js'
 import { deleteUser, deleteUserByPublicId } from './delete-user.controller.js'
 import { forgotPassword } from './forgot-password.controller.js'

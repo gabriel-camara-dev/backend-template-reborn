@@ -1,4 +1,4 @@
-import { User, UserRole } from '@prisma/client'
+import type { User, UserRole } from '@prisma/client'
 
 type HTTPUser = {
   id: string
@@ -15,7 +15,7 @@ export class UserPresenter {
   static toHTTP(users: User[]): HTTPUser[]
   static toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
     if (Array.isArray(input)) {
-      return input.map((u) => this.toHTTP(u))
+      return input.map((u) => UserPresenter.toHTTP(u))
     }
 
     return {

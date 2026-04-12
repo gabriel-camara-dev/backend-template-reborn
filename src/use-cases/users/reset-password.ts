@@ -2,7 +2,7 @@ import { env } from '@env/index.js'
 import type { UserRepository } from '@repositories/users-repository.js'
 import { InvalidTokenError } from '@use-cases/errors/invalid-token-error.js'
 import { hash } from 'bcryptjs'
-import { User } from '@/@types/prisma/client.js'
+import type { User } from '@/@types/prisma/client.js'
 
 interface ResetPasswordUseCaseCaseRequest {
   token: string
@@ -21,7 +21,7 @@ export class ResetPasswordUseCase {
 
     const userExists = await this.usersRepository.findBy({ token })
 
-    if (!userExists || !userExists.tokenExpiresAt || userExists.tokenExpiresAt < new Date()) {
+    if (!userExists?.tokenExpiresAt || userExists.tokenExpiresAt < new Date()) {
       throw new InvalidTokenError()
     }
 
