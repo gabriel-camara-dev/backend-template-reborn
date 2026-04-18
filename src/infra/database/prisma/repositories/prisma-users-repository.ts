@@ -26,8 +26,8 @@ export class PrismaUsersRepository implements UserRepository {
   }
 
   async list(query: ListUsersQuery): Promise<PaginatedResults<User>> {
-    const currentPage = Math.max(1, query.page ?? 1)
-    const perPage = Math.max(1, query.limit ?? 10)
+    const currentPage = query.page ?? 1
+    const perPage = query.limit ?? 10
 
     const where: Prisma.UserWhereInput = query.name
       ? {
