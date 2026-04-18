@@ -1,7 +1,7 @@
 import { messages } from '@constants/messages.js'
 import { forgotPasswordSchema } from '@http/schemas/users/forgot-password-schema.js'
 import { logger } from '@lib/logger/index.js'
-import { UserNotFoundForPasswordResetError } from '@/use-cases/errors/user-not-found-for-password-reset-error.js'
+import { UserNotFoundForPasswordResetError } from '@/domain/main/application/use-cases/users/errors/user-not-found-for-password-reset-error.js'
 import { makeForgotPasswordUseCase } from '@/infra/factories/user-factory.js'
 import { makeSendEmailUseCase } from '@/infra/factories/messaging-factory.js'
 import type { FastifyReply, FastifyRequest } from 'fastify'

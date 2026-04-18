@@ -3,7 +3,7 @@ import type { Result } from '@/core/result.js'
 import { fail, sucess } from '@/core/result.js'
 import type { UserRepository } from '@/repositories/users-repository.js'
 import type { User, UserRole } from '@/domain/main/enterprise/entities/user.js'
-import { UserAlreadyExistsError } from '@/use-cases/errors/user-already-exists-error.js'
+import { UserAlreadyExistsError } from '@/domain/main/application/use-cases/users/errors/user-already-exists-error.js'
 import { hash } from 'bcryptjs'
 
 interface RegisterUserUseCaseRequest {

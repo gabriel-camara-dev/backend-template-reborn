@@ -4,7 +4,7 @@ import type { Result } from '@/core/result.js'
 import { fail, sucess } from '@/core/result.js'
 import type { UserRepository } from '@/repositories/users-repository.js'
 import type { User } from '@/domain/main/enterprise/entities/user.js'
-import { UserNotFoundForPasswordResetError } from '@/use-cases/errors/user-not-found-for-password-reset-error.js'
+import { UserNotFoundForPasswordResetError } from '@/domain/main/application/use-cases/users/errors/user-not-found-for-password-reset-error.js'
 
 interface ForgotPasswordUseCaseRequest {
   login: string
