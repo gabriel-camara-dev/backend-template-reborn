@@ -8,8 +8,8 @@
   "type": "module",
   "scripts": {
     "build": "tsup src --minify",
-    "start:dev": "tsx watch --env-file=.env --no-deprecation src/server.ts",
-    "start:prod": "node --env-file=.env build/server.js",
+    "start:dev": "tsx watch --env-file=.env --no-deprecation src/infra/server.ts",
+    "start:prod": "node --env-file=.env build/infra/server.js",
     "format": "biome format --write .",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
