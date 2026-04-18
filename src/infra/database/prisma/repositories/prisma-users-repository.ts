@@ -1,7 +1,9 @@
 import { prisma } from '@lib/prisma/index.js'
 import type { UserRepository } from '@/domain/main/application/repositories/users-repository.js'
 import type { FindUserBy } from '@/domain/main/application/repositories/users-repository.js'
+import type { ListUsersQuery } from '@/domain/main/application/repositories/users-repository.js'
 import type { CreateUserData, UpdateUserData, User } from '@/domain/main/enterprise/entities/user.js'
+import type { PaginatedResults } from '@/core/types/pagination.js'
 import type { Prisma } from '@prisma-types/client.js'
 import { PrismaUserMapper } from '../mappers/prisma-user-mapper.js'
 
@@ -23,9 +25,37 @@ export class PrismaUsersRepository implements UserRepository {
     return user ? PrismaUserMapper.toDomain(user) : null
   }
 
-  async list(): Promise<User[]> {
-    const users = await prisma.user.findMany()
-    return users.map((user) => PrismaUserMapper.toDomain(user))
+  async list(query: ListUsersQuery): Promise<PaginatedResults<User>> {
+    const currentPage = Math.max(1, query.page ?? 1)
+    const perPage = Math.max(1, query.limit ?? 10)
+
+    const where: Prisma.UserWhereInput = query.name
+      ? {
+          name: {
+            contains: query.name,
+            mode: 'insensitive',
+          },
+        }
+      : {}
+
+    const [users, totalCount] = await Promise.all([
+      prisma.user.findMany({
+        where,
+        orderBy: {
+          createdAt: 'desc',
+        },
+        skip: (currentPage - 1) * perPage,
+        take: perPage,
+      }),
+      prisma.user.count({ where }),
+    ])
+
+    return {
+      data: users.map((user) => PrismaUserMapper.toDomain(user)),
+      totalPages: Math.ceil(totalCount / perPage),
+      totalCount,
+      currentPage,
+    }
   }
 
   async updateById(id: number, data: UpdateUserData): Promise<User> {
