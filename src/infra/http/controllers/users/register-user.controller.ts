@@ -27,7 +27,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
 
   logger.info({ userId: user.publicId }, 'Researcher registered successfully!')
 
-  reply.status(201).send({ user: UserPresenter.toHTTP(user) })
+  return reply.status(201).send({ user: UserPresenter.toHTTP(user) })
 }
 
 export async function registerAdmin(request: FastifyRequest, reply: FastifyReply) {
