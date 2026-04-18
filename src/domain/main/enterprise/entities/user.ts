@@ -1,6 +1,6 @@
-import { USER_ROLES, type UserRole } from './user-role.js'
+import type { UserRole } from './user-role.js'
 
-export { USER_ROLES, type UserRole, isValidUserRole, getUserRoleDescription } from './user-role.js'
+export { getUserRoleDescription, isValidUserRole, USER_ROLES, type UserRole } from './user-role.js'
 
 export interface User {
   id: number
