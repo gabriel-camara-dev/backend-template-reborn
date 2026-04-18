@@ -31,6 +31,10 @@ function isInvalidJsonBodyError(error: Error) {
 export function httpErrorHandler(error: Error, request: FastifyRequest, reply: FastifyReply) {
   if (error instanceof ZodError) {
     const details = formatZodValidationErrors(error)
+    const responseBody = {
+      message: messages.validation.invalidData,
+      ...(env.NODE_ENV === 'development' && { errors: details }),
+    }
 
     logger.debug(
       {
@@ -41,10 +45,7 @@ export function httpErrorHandler(error: Error, request: FastifyRequest, reply: F
       'Validation error occurred',
     )
 
-    return reply.status(400).send({
-      message: messages.validation.invalidData,
-      errors: details,
-    })
+    return reply.status(400).send(responseBody)
   }
 
   if (isInvalidJsonBodyError(error)) {
