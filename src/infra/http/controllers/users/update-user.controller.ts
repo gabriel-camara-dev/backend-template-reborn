@@ -6,7 +6,7 @@ import { makeUpdateUserUseCase } from '@/infra/factories/user-factory.js'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function updateUser(request: FastifyRequest, reply: FastifyReply) {
-  const { name, email, password } = updateSchema.parse(request.body)
+  const { name, email, cpf, username } = updateSchema.parse(request.body)
 
   const updateUserUseCase = makeUpdateUserUseCase()
 
@@ -14,7 +14,8 @@ export async function updateUser(request: FastifyRequest, reply: FastifyReply) {
     publicId: request.user.sub,
     name,
     email,
-    password,
+    cpf,
+    username,
   })
 
   if (result.isFail()) {
@@ -29,7 +30,7 @@ export async function updateUser(request: FastifyRequest, reply: FastifyReply) {
 }
 
 export async function updateUserByPublicId(request: FastifyRequest, reply: FastifyReply) {
-  const { name, email, password } = updateSchema.parse(request.body)
+  const { name, email, cpf, username } = updateSchema.parse(request.body)
   const { publicId } = publicIdSchema.parse(request.params)
 
   const updateUserUseCase = makeUpdateUserUseCase()
@@ -38,7 +39,8 @@ export async function updateUserByPublicId(request: FastifyRequest, reply: Fasti
     publicId,
     name,
     email,
-    password,
+    cpf,
+    username,
   })
 
   if (result.isFail()) {
