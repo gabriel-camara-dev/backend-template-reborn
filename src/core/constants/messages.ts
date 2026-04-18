@@ -1,7 +1,7 @@
 export const messages = {
   validation: {
     invalidData: 'Dados de registro inválidos!',
-    userAlreadyExists: 'Já existe um usuário cadastrado com este CPF ou E-mail',
+    userAlreadyExists: 'Já existe um usuário cadastrado com este CPF, E-mail ou username',
     invalidCpf: 'CPF inválido!',
     invalidJson: 'O corpo da requisição não está em formato JSON válido. Verifique a estrutura dos dados enviados.',
     passwordTooShort: 'A senha deve ter pelo menos 8 caracteres.',

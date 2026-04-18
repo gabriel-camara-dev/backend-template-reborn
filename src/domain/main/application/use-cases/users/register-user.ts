@@ -33,25 +33,27 @@ export class RegisterUserUseCase {
     password,
     role,
   }: RegisterUserUseCaseRequest): Promise<RegisterUserUseCaseResponse> {
+    const [userWithEmail, userWithUsername, userWithCpf] = await Promise.all([
+      this.usersRepository.findBy({ email }),
+      this.usersRepository.findBy({ username }),
+      this.usersRepository.findBy({ cpf }),
+    ])
+
+    if (userWithEmail || userWithUsername || userWithCpf) {
+      return fail(new UserAlreadyExistsError())
+    }
+
     const passwordHash = await hash(password, env.HASH_SALT_ROUNDS)
 
-    try {
-      const user = await this.usersRepository.create({
-        name,
-        email,
-        cpf,
-        username,
-        passwordHash,
-        role,
-      })
+    const user = await this.usersRepository.create({
+      name,
+      email,
+      cpf,
+      username,
+      passwordHash,
+      role,
+    })
 
-      return sucess({ user })
-    } catch (error) {
-      if (error instanceof UserAlreadyExistsError) {
-        return fail(error)
-      }
-
-      throw error
-    }
+    return sucess({ user })
   }
 }

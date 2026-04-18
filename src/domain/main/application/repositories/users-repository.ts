@@ -9,6 +9,7 @@ export interface TokenData {
 export interface FindUserBy {
   email?: string
   username?: string
+  cpf?: string
   publicId?: string
   token?: string
 }

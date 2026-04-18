@@ -4,7 +4,7 @@ import type { FindUserBy } from '@/domain/main/application/repositories/users-re
 import type { ListUsersQuery } from '@/domain/main/application/repositories/users-repository.js'
 import type { CreateUserData, UpdateUserData, User } from '@/domain/main/enterprise/entities/user.js'
 import type { PaginatedResults } from '@/core/types/pagination.js'
-import type { Prisma } from '@prisma-types/client.js'
+import { Prisma } from '@prisma-types/client.js'
 import { PrismaUserMapper } from '../mappers/prisma-user-mapper.js'
 
 export class PrismaUsersRepository implements UserRepository {
@@ -12,6 +12,7 @@ export class PrismaUsersRepository implements UserRepository {
     const user = await prisma.user.create({
       data: PrismaUserMapper.toPrisma(data),
     })
+
     return PrismaUserMapper.toDomain(user)
   }
 
@@ -63,6 +64,7 @@ export class PrismaUsersRepository implements UserRepository {
       where: { id },
       data: PrismaUserMapper.toUpdatePrisma(data),
     })
+
     return PrismaUserMapper.toDomain(user)
   }
 
@@ -82,6 +84,10 @@ export class PrismaUsersRepository implements UserRepository {
 
     if (findUserBy.username) {
       return { username: findUserBy.username }
+    }
+
+    if (findUserBy.cpf) {
+      return { cpf: findUserBy.cpf }
     }
 
     if (findUserBy.publicId) {
