@@ -35,31 +35,48 @@ Avancemos juntos, lobos, fortalecendo nossa **alcateia** a cada projeto!
 ├─── .vscode
 ├─── logs
 ├─── prisma
+│    ├─── migrations
+│    ├─── models
+│    ├─── schema.prisma
+│    └─── seed.ts
 └─── src
      ├─── @types
-     ├─── constants
-     ├─── env
-     ├─── http
-     │    ├─── controllers
-     │    │    ├─── health-check
-     │    │    └─── users
-     │    ├─── middlewares
-     │    └─── schemas
-     │         ├───users
-     │         └───utils
-     ├─── lib
-     │    ├─── logger
      │    └─── prisma
-     ├─── repositories
-     │    └─── prisma
-     ├─── templates
-     │    └─── forgot-password
-     ├─── use-cases
+     ├─── core
+     │    ├─── constants
      │    ├─── errors
-     │    ├─── factories
-     │    ├─── messaging
-     │    └─── users
-     └─── utils
+     │    └─── types
+     ├─── domain
+     │    ├─── main
+     │    │    ├─── application
+     │    │    │    ├─── messaging
+     │    │    │    ├─── repositories
+     │    │    │    └─── use-cases
+     │    │    └─── enterprise
+     │    │         └─── entities
+     │    └─── notification
+     └─── infra
+          ├─── database
+          │    └─── prisma
+          │         ├─── mappers
+          │         └─── repositories
+          ├─── env
+          ├─── factories
+          ├─── http
+          │    ├─── controllers
+          │    │    ├─── health-check
+          │    │    └─── users
+          │    ├─── errors
+          │    ├─── middlewares
+          │    ├─── presenters
+          │    ├─── schemas
+          │    │    ├─── users
+          │    │    └─── utils
+          │    └─── utils
+          ├─── logger
+          └─── messaging
+               └─── templates
+                    └─── forgot-password
 ```
 
 ---
@@ -70,10 +87,10 @@ Avancemos juntos, lobos, fortalecendo nossa **alcateia** a cada projeto!
 
 <div align="center">
 
-| Tipo de Usuário   |            Permissões Principais            |
-| :---------------: | :-----------------------------------------: |
-|   Admin           |       Gerenciamento global do sistema       |
-|   Default         | Usuário do sistema sem permissões especiais |
+| Tipo de Usuário |            Permissões Principais            |
+| :-------------: | :-----------------------------------------: |
+|      Admin      |       Gerenciamento global do sistema       |
+|     Default     | Usuário do sistema sem permissões especiais |
 
 </div>
 
@@ -94,9 +111,9 @@ Avancemos juntos, lobos, fortalecendo nossa **alcateia** a cada projeto!
 
 - [ ] 2.1 ...
 - [ ] 2.2 ...
-
   - [ ] 2.2.1 ...
   - [ ] 2.2.2 ...
+
 - [ ] 2.3 ...
 
 ---
@@ -125,6 +142,7 @@ Avancemos juntos, lobos, fortalecendo nossa **alcateia** a cada projeto!
 <a name="requisitos"></a>
 
 ## ✔️ Requisitos:
+
 Certifique-se de que você tenha os seguintes softwares instalados antes de continuar:
 
 - [Docker](https://www.docker.com/) (versão mínima: 20.10)
@@ -135,6 +153,7 @@ Certifique-se de que você tenha os seguintes softwares instalados antes de cont
 <a name="versoes-utilizadas"></a>
 
 ## ⚙️ Versões Utilizadas:
+
 - **Node.js**: 22.18.0
 - **PostgreSQL**: 17.4.0 (Imagem Docker Bitnami)
 - **Prisma**: 6.14.0
@@ -144,14 +163,15 @@ Certifique-se de que você tenha os seguintes softwares instalados antes de cont
 <a name="como-executar-o-servidor"></a>
 
 ## 💻 Como Executar o Servidor:
+
 1. Abra o terminal - `CMD`, `PowerShell`, `Bash` ou similares - em algum diretório de preferência em sua máquina.
-2. Clone este repositório com o comando: 
+2. Clone este repositório com o comando:
 
 ```bash
 git clone https://github.com/IN-Junior-UFF/backend-template-reborn
 ```
 
-3. Navegue para dentro do projeto clonado com o comando: 
+3. Navegue para dentro do projeto clonado com o comando:
 
 ```bash
 cd backend-template-reborn
@@ -182,7 +202,7 @@ docker compose up -d
 npx prisma migrate reset
 ```
 
-8. Rode o projeto com o comando: 
+8. Rode o projeto com o comando:
 
 ```bash
 npm run start:dev
