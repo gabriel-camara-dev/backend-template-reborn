@@ -16,15 +16,15 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@fastify/cors": "11.2.0",
-    "@fastify/jwt": "10.0.0",
+    "@fastify/cors": "11.3.0",
+    "@fastify/jwt": "10.2.0",
     "@prisma/adapter-pg": "7.7.0",
     "@prisma/client": "7.7.0",
     "@sentry/node": "10.39.0",
     "@sentry/profiling-node": "10.39.0",
     "bcryptjs": "3.0.3",
     "cpf-cnpj-validator": "1.0.3",
-    "fastify": "5.8.4",
+    "fastify": "5.10.0",
     "nodemailer": "8.0.5",
     "pg": "8.20.0",
     "pino": "10.3.1",
